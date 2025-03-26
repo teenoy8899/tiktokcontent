@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TikTok Content Creator Dashboard</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="dashboard">
+    <nav class="sidebar">
+      <div class="logo">TikTok Creator</div>
+      <ul>
+        <li class="active"><i class="fas fa-home"></i> หน้าหลัก</li>
+        <li><i class="fas fa-video"></i> สร้างคอนเทนต์</li>
+        <li><i class="fas fa-chart-line"></i> วิเคราะห์</li>
+        <li><i class="fas fa-cog"></i> ตั้งค่า</li>
+      </ul>
+    </nav>
+
+    <main class="content">
+      <div class="content-creator">
+        <h2>สร้างคอนเทนต์</h2>
+        
+        <div class="category-selector">
+          <h3>เลือกหมวดหมู่</h3>
+          <div class="category-grid" id="categoryGrid"></div>
+        </div>
+
+        <div class="video-settings">
+          <h3>ตั้งค่าวิดีโอ</h3>
+          <div class="duration-selector">
+            <button data-duration="20">20 วินาที</button>
+            <button data-duration="30">30 วินาที</button>
+            <button data-duration="60">60 วินาที</button>
+          </div>
+        </div>
+
+        <div class="hook-selector">
+          <h3>เลือก Hook</h3>
+          <select id="hookType">
+            <option value="problem">Problem Hook</option>
+            <option value="curiosity">Curiosity Hook</option>
+            <option value="story">Story Hook</option>
+          </select>
+        </div>
+
+        <div class="script-editor">
+          <h3>แก้ไขบทพูด</h3>
+          <textarea id="scriptEditor" placeholder="พิมพ์บทพูดที่นี่..."></textarea>
+          <div class="filler-words">
+            <button>เพิ่มคำฟิลเลอร์</button>
+            <div class="filler-suggestions" style="display: none;">
+              <span>คือว่า</span>
+              <span>อะไรแบบ</span>
+              <span>เหมือนแบบ</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-section">
+          <h3>Call to Action</h3>
+          <div class="cta-buttons">
+            <button>กดติดตาม</button>
+            <button>กดซื้อเลย</button>
+            <button>แชร์กับเพื่อน</button>
+            <button>+ เพิ่ม CTA</button>
+          </div>
+        </div>
+
+        <div class="trending-data">
+          <h3>ข้อมูลเทรนด์</h3>
+          <div class="hashtag-suggestions" id="hashtagSuggestions">
+            กำลังโหลดแฮชแท็กยอดนิยม...
+          </div>
+        </div>
+
+        <div class="preview-section">
+          <h3>ตัวอย่างวิดีโอ</h3>
+          <div class="video-preview">
+            <div class="preview-placeholder">
+              <i class="fas fa-play"></i>
+            </div>
+          </div>
+          <button class="preview-button">ดูตัวอย่าง</button>
+          <button class="post-button">โพสต์</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://unpkg.com/htmx.org@1.9.3"></script>
+  <script src="script.js"></script>
+</body>
+</html>
