@@ -1,97 +1,127 @@
-
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TikTok Content Creator Dashboard</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สร้างคอนเทนต์ TikTok 60 วินาที - Grok 3 Style</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+        .section {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        button {
+            padding: 8px 15px;
+            margin: 5px;
+            background-color: #ff2d55;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #e02448;
+        }
+        #hashtags {
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
-  <div class="dashboard">
-    <nav class="sidebar">
-      <div class="logo">TikTok Creator</div>
-      <ul>
-        <li class="active"><i class="fas fa-home"></i> หน้าหลัก</li>
-        <li><i class="fas fa-video"></i> สร้างคอนเทนต์</li>
-        <li><i class="fas fa-chart-line"></i> วิเคราะห์</li>
-        <li><i class="fas fa-cog"></i> ตั้งค่า</li>
-      </ul>
-    </nav>
-
-    <main class="content">
-      <div class="content-creator">
-        <h2>สร้างคอนเทนต์</h2>
+    <div class="container">
+        <h1>สร้างคอนเทนต์ TikTok ขายของใน 60 วินาที</h1>
+        <div class="section" id="headline">คำพาดหัว: กดปุ่มเพื่อสุ่ม</div>
+        <button onclick="generateHeadline()">สุ่มคำพาดหัว</button>
         
-        <div class="category-selector">
-          <h3>เลือกหมวดหมู่</h3>
-          <div class="category-grid" id="categoryGrid"></div>
-        </div>
+        <div class="section" id="script">บทพูด (60 วินาที): กดปุ่มเพื่อสุ่ม</div>
+        <button onclick="generateScript()">สุ่มบทพูด</button>
+        
+        <div class="section" id="cta">Call to Action: กดปุ่มเพื่อสุ่ม</div>
+        <button onclick="generateCTA()">สุ่ม Call to Action</button>
+        
+        <div id="hashtags">#TikTokThailand #ขายของออนไลน์ #ช้อปปิ้ง</div>
+        <button onclick="generateAll()">สุ่มทั้งหมด</button>
+    </div>
 
-        <div class="video-settings">
-          <h3>ตั้งค่าวิดีโอ</h3>
-          <div class="duration-selector">
-            <button data-duration="20">20 วินาที</button>
-            <button data-duration="30">30 วินาที</button>
-            <button data-duration="60">60 วินาที</button>
-          </div>
-        </div>
+    <script>
+        // ข้อมูลสำหรับสุ่ม (เพิ่มความหลากหลายและฉลาดขึ้น)
+        const headlineParts = {
+            intros: ["ของดี", "สินค้าฮิต", "ไอเทมเด็ด", "ของปัง", "เทรนด์ใหม่"],
+            hooks: ["ต้องมี", "อย่าพลาด", "ซื้อเลย", "คนไทยรัก", "มาแรงสุด"]
+        };
 
-        <div class="hook-selector">
-          <h3>เลือก Hook</h3>
-          <select id="hookType">
-            <option value="problem">Problem Hook</option>
-            <option value="curiosity">Curiosity Hook</option>
-            <option value="story">Story Hook</option>
-          </select>
-        </div>
+        const scriptParts = {
+            greetings: ["สวัสดีทุกคน", "เฮลโหลเพื่อนๆ", "สวัสดีจ้า", "ฮายทุกคน", "หวัดดีนะ"],
+            powerWords: ["สุดยอด", "เริ่ด", "ปังมาก", "แจ่มสุด", "ว้าวจริง"],
+            benefits: ["ถูกสุดๆ", "ดีจริง", "คุ้มโคตร", "ใช้แล้วติดใจ", "เด็ดแน่นอน"],
+            actions: ["ลองเลย", "ซื้อด่วน", "จัดไป", "หยิบมา", "ช้อปเลย"],
+            closers: ["ไม่ผิดหวังแน่นอน", "เด็ดจนต้องบอกต่อ", "ดีจนต้องลอง", "ปังจนเพื่อนถาม", "คุ้มเกินราคา"]
+        };
 
-        <div class="script-editor">
-          <h3>แก้ไขบทพูด</h3>
-          <textarea id="scriptEditor" placeholder="พิมพ์บทพูดที่นี่..."></textarea>
-          <div class="filler-words">
-            <button>เพิ่มคำฟิลเลอร์</button>
-            <div class="filler-suggestions" style="display: none;">
-              <span>คือว่า</span>
-              <span>อะไรแบบ</span>
-              <span>เหมือนแบบ</span>
-            </div>
-          </div>
-        </div>
+        const ctaParts = {
+            actions: ["กดสั่ง", "ช้อปเลย", "รีบซื้อ", "คลิกลิงก์", "จัดด่วน"],
+            incentives: ["ส่งฟรีวันนี้", "มีส่วนลด", "ก่อนของหมด", "แถมของฟรี", "เดี๋ยวนี้เลย"]
+        };
 
-        <div class="cta-section">
-          <h3>Call to Action</h3>
-          <div class="cta-buttons">
-            <button>กดติดตาม</button>
-            <button>กดซื้อเลย</button>
-            <button>แชร์กับเพื่อน</button>
-            <button>+ เพิ่ม CTA</button>
-          </div>
-        </div>
+        // ฟังก์ชันสุ่มคำพาดหัว
+        function generateHeadline() {
+            const intro = headlineParts.intros[Math.floor(Math.random() * headlineParts.intros.length)];
+            const hook = headlineParts.hooks[Math.floor(Math.random() * headlineParts.hooks.length)];
+            const headline = `${intro} ${hook}!`;
+            document.getElementById("headline").innerText = `คำพาดหัว: ${headline}`;
+        }
 
-        <div class="trending-data">
-          <h3>ข้อมูลเทรนด์</h3>
-          <div class="hashtag-suggestions" id="hashtagSuggestions">
-            กำลังโหลดแฮชแท็กยอดนิยม...
-          </div>
-        </div>
+        // ฟังก์ชันสุ่มบทพูด 60 วินาที
+        function generateScript() {
+            const greeting = scriptParts.greetings[Math.floor(Math.random() * scriptParts.greetings.length)];
+            const powerWord = scriptParts.powerWords[Math.floor(Math.random() * scriptParts.powerWords.length)];
+            const benefit = scriptParts.benefits[Math.floor(Math.random() * scriptParts.benefits.length)];
+            const action = scriptParts.actions[Math.floor(Math.random() * scriptParts.actions.length)];
+            const closer = scriptParts.closers[Math.floor(Math.random() * scriptParts.closers.length)];
+            
+            const script = `${greeting}! วันนี้เรามีของดีมาแนะนำ สินค้านี้มัน${powerWord}เลยนะ ใช้แล้ว${benefit} เพื่อนๆ ใน TikTok ฮิตกันสุดๆ ตอนนี้ เรา${action}มาให้ดูกันชัดๆ อยากรู้ว่าเด็ดยังไง ลองไปดูที่ลิงก์ในโปรไฟล์ได้เลย รับรอง${closer}!`;
+            document.getElementById("script").innerText = `บทพูด (60 วินาที): ${script}`;
+        }
 
-        <div class="preview-section">
-          <h3>ตัวอย่างวิดีโอ</h3>
-          <div class="video-preview">
-            <div class="preview-placeholder">
-              <i class="fas fa-play"></i>
-            </div>
-          </div>
-          <button class="preview-button">ดูตัวอย่าง</button>
-          <button class="post-button">โพสต์</button>
-        </div>
-      </div>
-    </main>
-  </div>
+        // ฟังก์ชันสุ่ม Call to Action
+        function generateCTA() {
+            const action = ctaParts.actions[Math.floor(Math.random() * ctaParts.actions.length)];
+            const incentive = ctaParts.incentives[Math.floor(Math.random() * ctaParts.incentives.length)];
+            const cta = `${action} ${incentive}!`;
+            document.getElementById("cta").innerText = `Call to Action: ${cta}`;
+        }
 
-  <script src="https://unpkg.com/htmx.org@1.9.3"></script>
-  <script src="script.js"></script>
+        // ฟังก์ชันสุ่มทั้งหมด
+        function generateAll() {
+            generateHeadline();
+            generateScript();
+            generateCTA();
+        }
+    </script>
 </body>
 </html>
